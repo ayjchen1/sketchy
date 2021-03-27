@@ -21,14 +21,23 @@ class Launch extends Component
   render() {
     return (
       <div className="Launch-container">
-        <div className="Launch-subContainer Launch-headContainer">
-          <h1 className="Launch-header u-textCenter">sketchy</h1>
+        <div className="Launch-showContainer Launch-headContainer">
+              <div>
+                <div className="Launch-header u-textCenter">sketchy</div>
+                <div className="Launch-subheader u-textCenter"> Transforming doodles and sketches to line-art and photos (something better)</div>
+              </div>
+              <div className="Launch-buttonContainer">
+                      <button
+                          type="submit"
+                          className="Launch-button n u-pointer"
+                          value="Submit"
+                          onClick={() => {window.location.href = "/sketchy/"}}
+                        >
+                        start sketching
+                      </button>
+              </div>
         </div>
-        <div className="Launch-subContainer Launch-bodyContainer">
-
-          <div className="Launch-showContainer">
-
-              <div className="Launch-images" >
+        <div className="Launch-bodyContainer Launch-showContainer">
                 <span style = {{ color: "#8a3a52" }}> these r placeholder images </span>
                 <div>
                   <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
@@ -42,20 +51,6 @@ class Launch extends Component
                   <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
                   <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
                 </div>
-              </div>
-
-              <div className="Launch-buttonContainer">
-                <button
-                    type="submit"
-                    className="Launch-button n u-pointer"
-                    value="Submit"
-                    onClick={() => {window.location.href = "/sketchy/"}}
-                  >
-                  start sketching
-                </button>
-              </div>
-
-          </div>
         </div>
     </div>
     );
