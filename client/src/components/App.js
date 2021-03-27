@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Launch from "./pages/Launch.js";
+import Sketch from "./pages/Sketch.js";
 import NavBar from "./modules/NavBar.js";
 
 import "../utilities.css";
@@ -52,6 +53,7 @@ class App extends Component {
       <div className="App-container">
         <Router>
           <Launch path="/" />
+          <Sketch path="/sketchy/" />
           <NotFound default />
         </Router>
       </div>

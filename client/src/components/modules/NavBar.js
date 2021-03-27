@@ -14,7 +14,6 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="NavBar-container">
-        <div className="NavBar-title u-inlineBlock">Sketchy</div>
         <div className="NavBar-linkContainer u-inlineBlock">
           <Link to="/" className="NavBar-link">
             Home
@@ -22,6 +21,9 @@ class NavBar extends Component {
           <Link to="/sketchy/" className="NavBar-link">
             Sketch!
           </Link>
+        </div>
+        <div className="NavBar-linkContainer">
+          <div className="NavBar-title u-inlineBlock">sketchy</div>
         </div>
       </nav>
     );

@@ -1,0 +1,36 @@
+.Launch-container
+{
+    padding: var(--xxl) var(--l);
+}
+
+.Launch-header 
+{
+    font-size: 100px;
+    font-weight: 400;
+    color: var(--primary);
+    padding-bottom: var(--xl);
+    margin: none;
+
+    border-bottom: 1.4px dashed var(--primary--dim);
+}
+
+.Launch-button {
+    font-family: "Open Sans";
+    font-size: 18px;
+    padding: var(--s) var(--m);
+    color: var(--primary);
+    border: var(--primary) 1px solid;
+    border-radius: var(--xs);
+    background: none;
+    transition: color 0.5s, background 0.5s;
+}
+  
+.Launch-button:hover 
+{
+    color: var(--white);
+    background-color: var(--primary);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+  

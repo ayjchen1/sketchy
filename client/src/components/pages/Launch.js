@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "../../utilities.css";
-import "./Skeleton.css";
+import "./Launch.css";
 
 class Launch extends Component 
 {
@@ -17,7 +17,19 @@ class Launch extends Component
 
   render() {
     return (
-      <div></div>
+      <div className="Launch-container">
+        <div>
+          <h1 className="Launch-header u-textCenter">sketchy</h1>
+        </div>
+        <button
+            type="submit"
+            className="Launch-button n u-pointer"
+            value="Submit"
+            onClick={() => {window.location.href = "/sketchy/"}}
+          >
+          start sketching
+        </button>
+    </div>
     );
   }
 }
