@@ -1,6 +1,51 @@
 .Launch-container
 {
     padding: var(--xxl) var(--l);
+    display: flex;
+    justify-content: space-between;
+}
+
+.Launch-showContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Launch-images
+{
+    flex-basis: 0;
+    flex-grow: 2;
+}
+
+.Launch-im
+{
+    border-radius: 25%;
+    margin: 0 var(--m) 0 0;
+}
+
+.Launch-buttonContainer
+{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: var(--m)  0;
+}
+
+.Launch-subContainer
+{
+    flex-basis: 0;
+}
+
+.Launch-headContainer
+{
+    flex-grow: 1;
+    padding: 0 var(--s);
+}
+
+.Launch-bodyContainer
+{
+    flex-grow: 1;
 }
 
 .Launch-header 
@@ -11,7 +56,7 @@
     padding-bottom: var(--xl);
     margin: none;
 
-    border-bottom: 1.4px dashed var(--primary--dim);
+    border-bottom: 1px solid var(--primary--dim);
 }
 
 .Launch-button {
@@ -34,3 +79,9 @@
     transform: scale(1.2);
 }
   
+
+h1
+{
+    margin: none;
+    padding: none;
+}

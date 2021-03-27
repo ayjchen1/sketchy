@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import "../../utilities.css";
 import "./Launch.css";
 
+import photo from "../modules/images/phphoto.jpg";
+import sketch from "../modules/images/phsketch.jpg";
+
 class Launch extends Component 
 {
   constructor(props) {
@@ -18,17 +21,42 @@ class Launch extends Component
   render() {
     return (
       <div className="Launch-container">
-        <div>
+        <div className="Launch-subContainer Launch-headContainer">
           <h1 className="Launch-header u-textCenter">sketchy</h1>
         </div>
-        <button
-            type="submit"
-            className="Launch-button n u-pointer"
-            value="Submit"
-            onClick={() => {window.location.href = "/sketchy/"}}
-          >
-          start sketching
-        </button>
+        <div className="Launch-subContainer Launch-bodyContainer">
+
+          <div className="Launch-showContainer">
+
+              <div className="Launch-images" >
+                <span style = {{ color: "#8a3a52" }}> these r placeholder images </span>
+                <div>
+                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
+                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
+                </div>
+                <div>
+                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
+                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
+                </div>
+                <div>
+                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
+                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
+                </div>
+              </div>
+
+              <div className="Launch-buttonContainer">
+                <button
+                    type="submit"
+                    className="Launch-button n u-pointer"
+                    value="Submit"
+                    onClick={() => {window.location.href = "/sketchy/"}}
+                  >
+                  start sketching
+                </button>
+              </div>
+
+          </div>
+        </div>
     </div>
     );
   }
