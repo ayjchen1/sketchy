@@ -9,11 +9,28 @@ class Sketch extends Component
   constructor(props) {
     super(props);
     // Initialize Default State
-    this.state = {};
+    this.state = {
+      words: "hello",
+    };
   }
 
-  componentDidMount() {
-    // remember -- api calls go here!
+  componentDidMount() 
+  {
+    fetch('/hello').then(res => res.json()).then(data => {
+      console.log(data);
+      this.setState({
+        words: data['result'],
+      });
+    });
+  }
+
+  componentDidUpdate()
+  {
+    fetch('/hello').then(res => res.json()).then(data => {
+      this.setState({
+        words: data['result'],
+      });
+    });
   }
 
   getUploadParams = () => {
@@ -36,6 +53,7 @@ class Sketch extends Component
     return (
         <div className="Sketch-container">
         <h1 className="Sketch-header u-textCenter">Sketchy generator . . .</h1>
+        <div> {this.state.words} </div>
         <hr className="Sketch-line" />
         <div className="u-flex">
           <div className="Sketch-subContainer u-textCenter">
