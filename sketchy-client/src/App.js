@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router } from "@reach/router";
+import NotFound from "./pages/NotFound.js";
+import Launch from "./pages/Launch.js";
+import Sketch from "./pages/Sketch.js";
+import NavBar from "./modules/NavBar.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./utilities.css";
+
+class App extends Component {
+  
+  constructor(props) 
+  {
+    super(props);
+  }
+
+  render() 
+  {
+    return (
+      <>
+      <NavBar />
+      <div className="App-container">
+        <Router>
+          <Launch path="/" />
+          <Sketch path="/sketchy/" />
+          <NotFound default />
+        </Router>
+      </div>
+      </>
+    );
+  }
 }
 
 export default App;

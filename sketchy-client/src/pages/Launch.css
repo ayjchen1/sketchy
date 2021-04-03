@@ -1,0 +1,84 @@
+.Launch-container
+{
+    padding: var(--xxl) var(--l);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Launch-showContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.Launch-bodyContainer
+{
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+
+.Launch-im
+{
+    border-radius: 25%;
+    margin: 0;
+}
+
+.Launch-headContainer
+{
+    flex-grow: 1;
+    flex-basis: 0;
+    padding-left: var(--l);
+}
+
+.Launch-buttonContainer
+{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: var(--m) 0;
+}
+
+.Launch-header 
+{
+    font-size: 100px;
+    font-weight: 400;
+    color: var(--primary);
+    padding-bottom: var(--l);
+    margin: none;
+
+    border-bottom: 1px solid var(--primary--dim);
+}
+
+.Launch-subheader
+{
+    font-size: large;
+    font-weight: 300;
+    color: var(--primary);
+    margin: 0;
+    padding: var(--xl) var(--l);
+}
+
+.Launch-button {
+    font-family: "Open Sans";
+    font-size: 18px;
+    padding: var(--s) var(--m);
+    color: var(--primary);
+    border: var(--primary) 1px solid;
+    border-radius: var(--xs);
+    background: none;
+    transition: color 0.5s, background 0.5s;
+}
+  
+.Launch-button:hover 
+{
+    color: var(--white);
+    background-color: var(--primary);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+  
