@@ -16,21 +16,21 @@ class Sketch extends Component
 
   componentDidMount() 
   {
-    fetch('/hello').then(res => res.json()).then(data => {
+    /*fetch('/hello').then(res => res.json()).then(data => {
       console.log(data);
       this.setState({
         words: data['result'],
       });
-    });
+    });*/
   }
 
   componentDidUpdate()
   {
-    fetch('/hello').then(res => res.json()).then(data => {
+    /*fetch('/hello').then(res => res.json()).then(data => {
       this.setState({
         words: data['result'],
       });
-    });
+    });*/
   }
 
   getUploadParams = () => {
@@ -43,10 +43,20 @@ class Sketch extends Component
 
   handleSubmit = (files, allFiles) => {
     console.log(files)
-    console.log("******")
-    console.log(allFiles)
-    console.log(files.map(f => f.meta))
-    allFiles.forEach(f => f.remove())
+
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('filename', files[0].meta.name);
+
+    console.log(data);
+    fetch('/upload', { method: 'POST', body: data })
+    .then((response) => { response.json().then((body) => { 
+        console.log(body);
+      });
+    });
+
+
+    //allFiles.forEach(f => f.remove())
   }
 
   render() {
@@ -67,8 +77,10 @@ class Sketch extends Component
                             inputLabel: {color: "#b55c77"},
                             inputLabelWithFiles: { backgroundColor: "#ffffff", color: "#b55c77", 
                                                     border: "1px solid #b55c77"},
-                            submitButton: { backgroundColor: "#8a3a52"} }}
+                            submitButton: { backgroundColor: "#8a3a52"},
+                        }}
             />
+        
           </div>
           <div className="Sketch-subContainer u-textCenter">
             <h4 className="Sketch-subTitle">Transformed Artwork</h4>
