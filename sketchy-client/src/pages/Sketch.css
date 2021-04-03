@@ -31,3 +31,8 @@
     font-size: 24px;
     margin: var(--m) var(--s);
 }
+
+.Sketch-image
+{
+    border-radius: var(--m);
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dropzone from 'react-dropzone-uploader'
+import axios from 'axios';
 
 import 'react-dropzone-uploader/dist/styles.css'
 import "./Sketch.css";
@@ -10,31 +11,8 @@ class Sketch extends Component
     super(props);
     // Initialize Default State
     this.state = {
-      words: "hello",
+      imageURL: null,
     };
-  }
-
-  componentDidMount() 
-  {
-    /*fetch('/hello').then(res => res.json()).then(data => {
-      console.log(data);
-      this.setState({
-        words: data['result'],
-      });
-    });*/
-  }
-
-  componentDidUpdate()
-  {
-    /*fetch('/hello').then(res => res.json()).then(data => {
-      this.setState({
-        words: data['result'],
-      });
-    });*/
-  }
-
-  getUploadParams = () => {
-    return { url: 'https://httpbin.org/post' }
   }
 
   handleChangeStatus = ({ meta }, status) => {
@@ -42,37 +20,32 @@ class Sketch extends Component
   }
 
   handleSubmit = (files, allFiles) => {
-    console.log(files)
+    let imageData = new FormData();
+    imageData.append('file', files[0]['file']);
 
-    const data = new FormData();
-    data.append('file', files[0]);
-    data.append('filename', files[0].meta.name);
-
-    console.log(data);
-    fetch('/upload', { method: 'POST', body: data })
-    .then((response) => { response.json().then((body) => { 
-        console.log(body);
+    axios.post('/upload', imageData).then((res) => { 
+      this.setState({
+        imageURL: res.data['fileurl'],
       });
     });
 
-
-    //allFiles.forEach(f => f.remove())
+    allFiles.forEach(f => f.remove())
   }
 
   render() {
     return (
         <div className="Sketch-container">
         <h1 className="Sketch-header u-textCenter">Sketchy generator . . .</h1>
-        <div> {this.state.words} </div>
         <hr className="Sketch-line" />
         <div className="u-flex">
           <div className="Sketch-subContainer u-textCenter">
             <h4 className="Sketch-subTitle">Original Artwork</h4>
             <Dropzone
                 accept="image/*"
-                getUploadParams={this.getUploadParams}
+                //getUploadParams={this.getUploadParams}
                 onChangeStatus={this.handleChangeStatus}
                 onSubmit={this.handleSubmit}
+                inputContent="Click To Upload Image Files"
                 styles={{ dropzone: { minHeight: 200, maxHeight: 250 }, 
                             inputLabel: {color: "#b55c77"},
                             inputLabelWithFiles: { backgroundColor: "#ffffff", color: "#b55c77", 
@@ -84,7 +57,7 @@ class Sketch extends Component
           </div>
           <div className="Sketch-subContainer u-textCenter">
             <h4 className="Sketch-subTitle">Transformed Artwork</h4>
-            <div>meow</div>
+            <img className="Sketch-image" src={this.state.imageURL}/>
           </div>
         </div>
       </div>
