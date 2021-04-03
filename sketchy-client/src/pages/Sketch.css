@@ -1,0 +1,38 @@
+.Sketch-container
+{
+    padding: var(--xl) var(--l);
+}
+
+.Sketch-header 
+{
+    font-size: 40px;
+    font-weight: 400;
+}
+  
+.Sketch-line 
+{
+    border-color: var(--grey);
+}
+  
+.Sketch-subContainer 
+{
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.Sketch-subContainer
+{
+    margin-left: var(--m);
+}
+
+.Sketch-subTitle 
+{
+    font-weight: 400;
+    font-size: 24px;
+    margin: var(--m) var(--s);
+}
+
+.Sketch-image
+{
+    border-radius: var(--m);
+}
