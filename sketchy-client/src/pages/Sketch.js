@@ -57,7 +57,7 @@ class Sketch extends Component
           </div>
           <div className="Sketch-subContainer u-textCenter">
             <h4 className="Sketch-subTitle">Transformed Artwork</h4>
-            <img className="Sketch-image" src={this.state.imageURL}/>
+            {this.state.imageURL == null ? null : <img className="Sketch-image" src={this.state.imageURL}/>}
           </div>
         </div>
       </div>

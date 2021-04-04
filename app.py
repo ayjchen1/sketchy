@@ -9,11 +9,6 @@ app = Flask(__name__)
 CORS(app) #comment this on deployment
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/hello')
-def say_hello_world():
-    return {'result': "Hello World"}
-
-
 @app.route('/img/<filename>', methods = ['GET'])
 def give(filename):
     filen = './testuploads/'+ filename
@@ -30,7 +25,7 @@ def image_upload():
 
         apiURL = "/img/" + filename
         print(apiURL)
-        
+
         return {'fileurl': apiURL}
 
     return {'fileurl': ""}
