@@ -48,8 +48,9 @@ def postprocess(pred, thresh=0.18, smooth=False):
 
 def generate(inputfile, outputfile):
     print("generating line art....")
-
-    weights = "../weights/model.pth"
+    print("input file: ", inputfile)
+    print("output file: ", outputfile)
+    weights = "./lineart-model/weights/model.pth"
 
     model = SketchKeras().to(device)
 

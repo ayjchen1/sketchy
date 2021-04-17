@@ -18,14 +18,13 @@ app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 
 @app.route('/img/<filename>', methods = ['GET'])
 def give(filename):
-    filen = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    filen = os.path.join(app.config['DOWNLOAD_FOLDER'], filename)
+    print(filen)
     return send_file(filen)
 
 def create_lineart(filename):
     inputpath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     outputpath = os.path.join(app.config['DOWNLOAD_FOLDER'], filename)
-
-    print(inputpath, outputpath)
 
     genlineart.generate(inputpath, outputpath)
 
@@ -38,9 +37,10 @@ def image_upload():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
         
-        create_lineart(filepath)
+        create_lineart(filename)
 
         apiURL = "/img/" + filename
+        print(apiURL)
         return {'fileurl': apiURL}
 
     return {'fileurl': ""}

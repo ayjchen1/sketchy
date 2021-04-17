@@ -24,10 +24,13 @@ class Sketch extends Component
     imageData.append('file', files[0]['file']);
 
     axios.post('/upload', imageData).then((res) => { 
+      console.log("hello", res.data)
       this.setState({
         imageURL: res.data['fileurl'],
       });
     });
+
+    console.log(this.state.imageURL)
 
     allFiles.forEach(f => f.remove())
   }
