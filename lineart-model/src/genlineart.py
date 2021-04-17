@@ -5,8 +5,8 @@ import cv2
 from model import SketchKeras
 import os
 
-INPUT_PATH = "/image"
-OUTPUT_PATH = "/outputimages"
+INPUT_PATH = "../images"
+OUTPUT_PATH = "../outputimages"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -46,10 +46,10 @@ def postprocess(pred, thresh=0.18, smooth=False):
         pred = cv2.medianBlur(pred, 3)
     return pred
 
-def generate(inputstr, outputstr):
-    weights = "weights/model.pth"
-    inputfile = os.path.join(INPUT_PATH, inputstr)
-    outputfile = os.path.join(OUTPUT_PATH, outputstr)
+def generate(inputfile, outputfile):
+    print("generating line art....")
+
+    weights = "../weights/model.pth"
 
     model = SketchKeras().to(device)
 
@@ -83,6 +83,17 @@ def generate(inputstr, outputstr):
     output = output[:new_height, :new_width]
 
     cv2.imwrite(outputfile, output)
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     args = parse_args()

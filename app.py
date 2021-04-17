@@ -5,7 +5,6 @@ from flask_cors import CORS #comment this on deployment
 
 import sys
 sys.path.insert(1, './lineart-model/src/')
-
 import genlineart
 
 UPLOAD_FOLDER = "./lineart-model/images"
@@ -22,6 +21,14 @@ def give(filename):
     filen = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     return send_file(filen)
 
+def create_lineart(filename):
+    inputpath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    outputpath = os.path.join(app.config['DOWNLOAD_FOLDER'], filename)
+
+    print(inputpath, outputpath)
+
+    genlineart.generate(inputpath, outputpath)
+
 @app.route('/upload', methods=['POST'])
 def image_upload():
     if request.method == 'POST':
@@ -30,10 +37,10 @@ def image_upload():
 
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
+        
+        create_lineart(filepath)
 
         apiURL = "/img/" + filename
-        print(apiURL)
-
         return {'fileurl': apiURL}
 
     return {'fileurl': ""}
