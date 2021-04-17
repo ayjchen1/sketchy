@@ -24,10 +24,13 @@ class Sketch extends Component
     imageData.append('file', files[0]['file']);
 
     axios.post('/upload', imageData).then((res) => { 
+      console.log("hello", res.data)
       this.setState({
         imageURL: res.data['fileurl'],
       });
     });
+
+    console.log(this.state.imageURL)
 
     allFiles.forEach(f => f.remove())
   }
@@ -57,7 +60,7 @@ class Sketch extends Component
           </div>
           <div className="Sketch-subContainer u-textCenter">
             <h4 className="Sketch-subTitle">Transformed Artwork</h4>
-            <img className="Sketch-image" src={this.state.imageURL}/>
+            {this.state.imageURL == null ? null : <img className="Sketch-image" src={this.state.imageURL}/>}
           </div>
         </div>
       </div>

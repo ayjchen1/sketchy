@@ -35,4 +35,6 @@
 .Sketch-image
 {
     border-radius: var(--m);
+    width: 350px;
+    height: auto;
 }

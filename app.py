@@ -3,21 +3,30 @@ from flask import Flask, request, redirect, send_file, url_for
 from werkzeug.utils import secure_filename
 from flask_cors import CORS #comment this on deployment
 
-UPLOAD_FOLDER = "./testuploads"
+import sys
+sys.path.insert(1, './lineart-model/src/')
+import genlineart
+
+UPLOAD_FOLDER = "./lineart-model/images"
+DOWNLOAD_FOLDER = "./lineart-model/outputimages"
 
 app = Flask(__name__)
 CORS(app) #comment this on deployment
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-@app.route('/hello')
-def say_hello_world():
-    return {'result': "Hello World"}
-
+app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 
 @app.route('/img/<filename>', methods = ['GET'])
 def give(filename):
-    filen = './testuploads/'+ filename
+    filen = os.path.join(app.config['DOWNLOAD_FOLDER'], filename)
+    print(filen)
     return send_file(filen)
+
+def create_lineart(filename):
+    inputpath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    outputpath = os.path.join(app.config['DOWNLOAD_FOLDER'], filename)
+
+    genlineart.generate(inputpath, outputpath)
 
 @app.route('/upload', methods=['POST'])
 def image_upload():
@@ -27,10 +36,11 @@ def image_upload():
 
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
+        
+        create_lineart(filename)
 
         apiURL = "/img/" + filename
         print(apiURL)
-        
         return {'fileurl': apiURL}
 
     return {'fileurl': ""}
