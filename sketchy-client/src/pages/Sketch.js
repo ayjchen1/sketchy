@@ -45,6 +45,7 @@ class Sketch extends Component
             <h4 className="Sketch-subTitle">Original Artwork</h4>
             <Dropzone
                 accept="image/*"
+                maxFiles={1}
                 //getUploadParams={this.getUploadParams}
                 onChangeStatus={this.handleChangeStatus}
                 onSubmit={this.handleSubmit}
