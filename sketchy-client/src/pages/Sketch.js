@@ -23,7 +23,7 @@ class Sketch extends Component
     let imageData = new FormData();
     imageData.append('file', files[0]['file']);
 
-    axios.post('/upload', imageData).then((res) => { 
+    axios.post('/uploadsketch', imageData).then((res) => { 
       console.log("hello", res.data)
       this.setState({
         imageURL: res.data['fileurl'],
@@ -38,7 +38,7 @@ class Sketch extends Component
   render() {
     return (
         <div className="Sketch-container">
-        <h1 className="Sketch-header u-textCenter">Sketchy generator . . .</h1>
+        <h1 className="Sketch-header u-textCenter">sketch to colorized photo . . .</h1>
         <hr className="Sketch-line" />
         <div className="u-flex">
           <div className="Sketch-subContainer u-textCenter">

@@ -66,6 +66,7 @@
     font-family: "Open Sans";
     font-size: 18px;
     padding: var(--s) var(--m);
+    margin: 0 var(--m);
     color: var(--primary);
     border: var(--primary) 1px solid;
     border-radius: var(--xs);
@@ -80,5 +81,10 @@
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
+}
+
+.Launch-bold:hover
+{
+    font-size: 24px;
 }
   
