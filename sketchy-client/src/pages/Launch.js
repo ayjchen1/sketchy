@@ -23,33 +23,26 @@ class Launch extends Component
         <div className="Launch-showContainer Launch-headContainer">
               <div>
                 <div className="Launch-header u-textCenter">sketchy</div>
-                <div className="Launch-subheader u-textCenter"> Transforming doodles and sketches to line-art and photos (something better)</div>
+                <div className="Launch-subheader u-textCenter"> transforming  <b className="Launch-bold"> doodles </b>  and  <b className="Launch-bold"> sketches </b> into  <b className="Launch-bold">colorized</b>  photos and back again </div>
               </div>
-              <div className="Launch-buttonContainer">
+              <span className="Launch-buttonContainer">
                       <button
                           type="submit"
                           className="Launch-button n u-pointer"
                           value="Submit"
-                          onClick={() => {window.location.href = "/sketchy/"}}
+                          onClick={() => {window.location.href = "/sketchtocolor/"}}
                         >
-                        start sketching
+                        sketch to photo
                       </button>
-              </div>
-        </div>
-        <div className="Launch-bodyContainer Launch-showContainer">
-                <span style = {{ color: "#8a3a52" }}> these r placeholder images </span>
-                <div>
-                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
-                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
-                </div>
-                <div>
-                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
-                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
-                </div>
-                <div>
-                  <img className="Launch-im" src={photo} value="photo" width="200px" height="150px"/>
-                  <img className="Launch-im" src={sketch} value="sketch" width="200px" height="150px"/>
-                </div>
+                      <button
+                          type="submit"
+                          className="Launch-button n u-pointer"
+                          value="Submit"
+                          onClick={() => {window.location.href = "/phototosketch/"}}
+                        >
+                        photo to sketch
+                      </button>
+              </span>
         </div>
     </div>
     );

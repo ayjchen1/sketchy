@@ -24,6 +24,7 @@
     color: var(--white);
     opacity: 0.6;
     text-decoration: none;
+    padding: var(--m);
   }
   
   .NavBar-link:hover {
