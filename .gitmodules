@@ -1,0 +1,3 @@
+[submodule "cycleGAN"] 
+  path = cycleGAN
+  url = https://github.com/alexquach/cycleGAN
