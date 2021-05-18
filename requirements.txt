@@ -1,7 +1,7 @@
 Flask
 click
-numpy==1.17.3
-h5py==2.10.0
+gunicorn
+numpy
 matplotlib
 Pillow
 tensorflow
