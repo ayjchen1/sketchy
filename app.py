@@ -16,7 +16,8 @@ DOWNLOAD_SKETCH_FOLDER = "./cycleGAN/output/A"
 UPLOAD_PHOTO_FOLDER = "./lineart-model/images"
 DOWNLOAD_PHOTO_FOLDER = "./lineart-model/outputimages"
 
-app = Flask(__name__)
+app = Flask(__name__ 
+    ,static_folder='client/build',static_url_path='')
 CORS(app) #comment this on deployment
 
 app.config['UPLOAD_SKETCH_FOLDER'] = UPLOAD_SKETCH_FOLDER
